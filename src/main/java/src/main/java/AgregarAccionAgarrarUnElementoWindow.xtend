@@ -30,14 +30,12 @@ class AgregarAccionAgarrarUnElementoWindow extends SimpleWindow<Habitacion>{
 			new Button(mainPanel) => [
 				caption = "Cancelar"
 				onClick [ | this.close ]
-				width = 10
 			]
 			
 			new Button(mainPanel) => [
 				caption = "Aceptar"
 				onClick [ | this.modelObject.agregarAccion(new AccionAgarrar(item)) ]
-			]
-			
+			]			
 		}
 	
 	override protected addActions(Panel actionsPanel) {
