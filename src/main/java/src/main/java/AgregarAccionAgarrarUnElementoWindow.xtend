@@ -1,4 +1,4 @@
-package src.test.java
+package src.main.java
 
 import ar.edu.unq.ciu.GatoEncerradoDominio.AccionAgarrar
 import org.uqbar.arena.layout.VerticalLayout
@@ -11,7 +11,7 @@ import ar.edu.unq.ciu.GatoEncerradoDominio.Item
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
-class VentanaAgregarAccionAgarrarUnElemento extends SimpleWindow<Habitacion>{
+class AgregarAccionAgarrarUnElementoWindow extends SimpleWindow<Habitacion>{
 
 	new(WindowOwner parent, Habitacion model) {
 		super(parent, model)
@@ -30,6 +30,7 @@ class VentanaAgregarAccionAgarrarUnElemento extends SimpleWindow<Habitacion>{
 			new Button(mainPanel) => [
 				caption = "Cancelar"
 				onClick [ | this.close ]
+				width = 10
 			]
 			
 			new Button(mainPanel) => [

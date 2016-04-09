@@ -1,4 +1,4 @@
-package src.test.java
+package src.main.java
 
 import org.uqbar.arena.Application
 import org.uqbar.arena.windows.Window
@@ -11,7 +11,7 @@ class MainPanel extends Application {
 	}
 
 	override protected Window<?> createMainWindow() {
-		return new VentanaAgregarAccionAgarrarUnElemento(this, new Habitacion)
+		return new AgregarAccionAgarrarUnElementoWindow(this, new Habitacion)
 	}
 	
 }
