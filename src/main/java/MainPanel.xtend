@@ -1,8 +1,6 @@
-package src.main.java
 
 import org.uqbar.arena.Application
 import org.uqbar.arena.windows.Window
-import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
 
 class MainPanel extends Application {
 	
@@ -11,7 +9,7 @@ class MainPanel extends Application {
 	}
 
 	override protected Window<?> createMainWindow() {
-		return new AgregarAccionAgarrarUnElementoWindow(this, new Habitacion)
+		//return new NuevaAccionWindow(new Habitacion()).startApplication
 	}
 	
 }
