@@ -1,7 +1,6 @@
 import ar.edu.unq.ciu.GatoEncerradoDominio.Test
 import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.widgets.Panel
-import ar.edu.unq.ciu.GatoEncerradoDominio.AcaHayGatoEncerradoAppModel
 
 class TestWindow extends MainWindow<Test>{
 
