@@ -47,7 +47,7 @@ class NuevaAccionWindow extends MainWindow<Habitacion>{
 
     def crearAccionDeIrAOtraHabitacion(){
         val accionMover = new AccionMover()
-        this.modelObject.agregarAccionMover(accionMover)
+        this.modelObject.agregarAccion(accionMover)
         new AccionMoverWindow(this, accionMover).open
     }
 
