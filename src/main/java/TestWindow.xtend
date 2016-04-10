@@ -10,7 +10,7 @@ class TestWindow extends MainWindow<Test>{
     }
 
     override createContents(Panel mainPanel) {
-        new PantallaPrincipalWindow(this, new AcaHayGatoEncerradoAppModel()).open
+        this.title = "funco"
     }
 
     def static main(String[] args) {
