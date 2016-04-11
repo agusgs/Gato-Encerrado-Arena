@@ -1,5 +1,6 @@
 
 import ar.edu.unq.ciu.GatoEncerradoDominio.AcaHayGatoEncerradoAppModel
+import ar.edu.unq.ciu.GatoEncerradoDominio.AgregarAccionAppModel
 import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto
 import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
@@ -68,9 +69,14 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
 
     def armarPanelHabitaciones(Panel panelPadre){
 
-        new Label(panelPadre).bindValueToProperty("laberintoSeleccionado.nombre")
+        var panelTitulo = new Panel(panelPadre)
+        panelTitulo.setLayout(new HorizontalLayout)
 
-            new TextBox(panelPadre).bindValueToProperty("nuevaHabitacion")
+        new Label(panelTitulo).text = "Habitacion de: "
+        new Label(panelTitulo).bindValueToProperty("laberintoSeleccionado.nombre")
+
+        new Label(panelPadre).text = "Nombre Laberinto"
+        new TextBox(panelPadre).bindValueToProperty("laberintoSeleccionado.nombre")
 
         var tablaHabitaciones = new Table<Habitacion>(panelPadre, typeof(Habitacion)) => [
 
@@ -89,7 +95,14 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
 
     def armarPanelHabitacionSeleccionada(Panel panelPadre){
 
-        new Label(panelPadre).bindValueToProperty("habitacionSeleccionada.nombre")
+        var panelTitulo = new Panel(panelPadre)
+        panelTitulo.setLayout(new HorizontalLayout)
+
+        new Label(panelTitulo).text = "Habitacion seleccionada: "
+        new Label(panelTitulo).bindValueToProperty("habitacionSeleccionada.nombre")
+
+        new Label(panelPadre).text = "Nombre"
+        new TextBox(panelPadre).bindValueToProperty("habitacionSeleccionada.nombre")
 
         var panelEsInicial = new Panel(panelPadre)
         panelEsInicial.setLayout(new HorizontalLayout)
@@ -162,11 +175,11 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     def agregarHabitacion(){
-        this.modelObject.crearHabitacion()
+        new HabitacionNuevaDialog(this, this.modelObject).open
     }
 
     def quitarHabitacion(){
-        this.modelObject.quitarHabitacion()
+        new HabitacionQuitarDialog(this, this.modelObject).open
     }
 
     def agregarLaberinto(){
@@ -174,13 +187,18 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     def quitarLaberinto(){
-
+        new LaberintoQuitarDialog(this, this.modelObject).open
     }
 
     def agregarAccion(){
+        var agregarAccionAppModel = new AgregarAccionAppModel()
+        agregarAccionAppModel.laberinto = modelObject.laberintoSeleccionado
+        agregarAccionAppModel.habitacion = modelObject.habitacionSeleccionada
+
+        new NuevaAccionWindow(this, agregarAccionAppModel).open
     }
 
     def quitarAccion(){
-
+        new QuitarAccionDialog(this, modelObject)
     }
 }

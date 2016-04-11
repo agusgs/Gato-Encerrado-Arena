@@ -6,7 +6,7 @@ import java.util.ArrayList
 class ProovedorDeObjetos {
     def crearAppModel(){
         var appModel = new AcaHayGatoEncerradoAppModel
-        appModel.setLaberintos(crearlaberintos())
+        appModel.laberintos = crearlaberintos()
 
         return appModel
     }
@@ -22,24 +22,24 @@ class ProovedorDeObjetos {
 
     def laberinto1(){
         var laberinto = new Laberinto
-        laberinto.setNombre("Laberinto 1")
-        laberinto.setHabitaciones(habitacionesLaberinto1())
+        laberinto.nombre = "Laberinto 1"
+        laberinto.habitaciones = habitacionesLaberinto1()
 
         return (laberinto)
     }
 
     def laberinto2(){
         var laberinto = new Laberinto
-        laberinto.setNombre("Laberinto 2")
-        laberinto.setHabitaciones(habitacionesLaberinto2())
+        laberinto.nombre = "Laberinto 2"
+        laberinto.habitaciones = habitacionesLaberinto2()
 
         return (laberinto)
     }
 
     def laberinto3(){
         var laberinto = new Laberinto
-        laberinto.setNombre("Laberinto 3")
-        laberinto.setHabitaciones(habitacionesLaberinto3())
+        laberinto.nombre = "Laberinto 3"
+        laberinto.habitaciones = habitacionesLaberinto3()
 
         return (laberinto)
     }
@@ -51,13 +51,13 @@ class ProovedorDeObjetos {
         var hab2 = new Habitacion()
         var hab3 = new Habitacion()
 
-        hab1.setNombre("Habitacion 1")
-        hab1.setIsInicial(true)
+        hab1.nombre = "Habitacion 1"
+        hab1.isInicial = true
 
-        hab2.setNombre("Habitacion 2")
-        hab2.setIsFinal(true)
+        hab2.nombre = "Habitacion 2"
+        hab2.isFinal = true
 
-        hab3.setNombre("Habitacion 3")
+        hab3.nombre = "Habitacion 3"
 
         habitaciones.add(hab1)
         habitaciones.add(hab2)
@@ -73,9 +73,9 @@ class ProovedorDeObjetos {
         var hab2 = new Habitacion()
         var hab3 = new Habitacion()
 
-        hab1.setNombre("Habitacion 4")
-        hab2.setNombre("Habitacion 5")
-        hab3.setNombre("Habitacion 6")
+        hab1.nombre = "Habitacion 4"
+        hab2.nombre = "Habitacion 5"
+        hab3.nombre = "Habitacion 6"
 
         habitaciones.add(hab1)
         habitaciones.add(hab2)
@@ -91,9 +91,9 @@ class ProovedorDeObjetos {
         var hab2 = new Habitacion()
         var hab3 = new Habitacion()
 
-        hab1.setNombre("Habitacion 7")
-        hab2.setNombre("Habitacion 8")
-        hab3.setNombre("Habitacion 9")
+        hab1.nombre = "Habitacion 7"
+        hab2.nombre = "Habitacion 8"
+        hab3.nombre = "Habitacion 9"
 
         habitaciones.add(hab1)
         habitaciones.add(hab2)

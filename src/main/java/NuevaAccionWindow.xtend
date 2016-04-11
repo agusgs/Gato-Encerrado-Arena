@@ -1,18 +1,15 @@
-import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
-import ar.edu.unq.ciu.GatoEncerradoDominio.AccionMover
-import ar.edu.unq.ciu.GatoEncerradoDominio.AccionAgarrar
-import ar.edu.unq.ciu.GatoEncerradoDominio.AccionUsar
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import ar.edu.unq.ciu.GatoEncerradoDominio.AgregarAccionAppModel
 
-class NuevaAccionWindow extends SimpleWindow<Habitacion>{
+class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
 
-    new (WindowOwner parent, Habitacion habitacion) {
-        super(parent, habitacion)
+    new (WindowOwner parent, AgregarAccionAppModel model) {
+        super(parent, model)
     }
 
     override addActions(Panel actionsPanel) {
@@ -48,20 +45,20 @@ class NuevaAccionWindow extends SimpleWindow<Habitacion>{
     }
 
     def crearAccionDeIrAOtraHabitacion(){
-        val accionMover = new AccionMover()
-        this.modelObject.agregarAccion(accionMover)
-        new AccionMoverWindow(this, accionMover).open
+//        val accionMover = new AccionMover()
+//        this.modelObject.agregarAccion(accionMover)
+//        new AccionMoverWindow(this, accionMover).open
     }
 
     def crearAccionDeAgarrarUnItem(){
-        val accionAgarrar = new AccionAgarrar()
-        this.modelObject.agregarAccion(accionAgarrar)
-        new AccionAgarrarWindow(this, accionAgarrar).open
+//        val accionAgarrar = new AccionAgarrar()
+//        this.modelObject.agregarAccion(accionAgarrar)
+//        new AccionAgarrarWindow(this, accionAgarrar).open
     }
 
     def crearAccionDeUsarUnItem(){
-        val accionUsar = new AccionUsar()
-        this.modelObject.agregarAccion(accionUsar)
-        new AccionUsarWindow(this, accionUsar).open
+//        val accionUsar = new AccionUsar()
+//        this.modelObject.agregarAccion(accionUsar)
+//        new AccionUsarWindow(this, accionUsar).open
     }
 }
