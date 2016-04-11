@@ -1,7 +1,6 @@
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
 import ar.edu.unq.ciu.GatoEncerradoDominio.AccionMover
 import ar.edu.unq.ciu.GatoEncerradoDominio.AccionAgarrar
-import ar.edu.unq.ciu.GatoEncerradoDominio.AccionUsar
 import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
@@ -58,9 +57,8 @@ class NuevaAccionWindow extends MainWindow<Habitacion>{
     }
 
     def crearAccionDeUsarUnItem(){
-        val accionUsar = new AccionUsar()
-        this.modelObject.agregarAccion(accionUsar)
-        new AccionUsarWindow(this, accionUsar).open
+       // val app = new AppModel()
+      //  new AccionUsarWindow(this, app).open
     }
 
     def static main(String[] args) {

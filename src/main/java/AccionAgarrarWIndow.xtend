@@ -5,8 +5,8 @@ import ar.edu.unq.ciu.GatoEncerradoDominio.AccionAgarrar
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.layout.VerticalLayout
+import ar.edu.unq.ciu.GatoEncerradoDominio.Item
 
 class AccionAgarrarWindow extends Dialog<AccionAgarrar>{
 
@@ -15,22 +15,15 @@ class AccionAgarrarWindow extends Dialog<AccionAgarrar>{
     }
 
     override createFormPanel(Panel mainPanel) {
-    	this.title = "Agregar accion de Agarrar un elemento"
-		this.crearLabel(mainPanel)
-		this.crearBotones(mainPanel)
-	}
-	
-	def void crearLabel(Panel mainPanel){
+    	this.title = "Agregar acciòn de Agarrar un elemento"
+
 		var panelDeLabel = new Panel(mainPanel)
        	panelDeLabel.setLayout(new VerticalLayout)
-		new Label(mainPanel).text = "Escriba una habitacion a la cual ir"
-		val nombreItem = new TextBox(mainPanel).value.toString
-		//item.setNombre(nombreItem) 
-    }
-				
-	def void crearBotones(Panel mainPanel){
-		var panelDeLosBotones = new Panel(mainPanel)
-       	panelDeLosBotones.setLayout(new HorizontalLayout)
+       	
+		new Label(mainPanel).text = "Escriba una habitaciòn a la cual ir"
+		val item = new Item
+		item.setNombre = new TextBox(mainPanel).value.toString
+
 			new Button(mainPanel) => [
 			caption = "Cancelar"
 			onClick [ | this.close ]
@@ -38,7 +31,10 @@ class AccionAgarrarWindow extends Dialog<AccionAgarrar>{
 		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-			//onClick [ | this.modelObject.agregarAccion(accion) ]
+			onClick [ | 
+				this.modelObject.setItem(item)
+				this.close
+			]
 		]
    	}
 }
