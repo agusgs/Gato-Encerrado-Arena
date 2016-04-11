@@ -10,6 +10,7 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.CheckBox
+import org.uqbar.arena.widgets.TextBox
 
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
@@ -68,6 +69,8 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     def armarPanelHabitaciones(Panel panelPadre){
 
         new Label(panelPadre).bindValueToProperty("laberintoSeleccionado.nombre")
+
+            new TextBox(panelPadre).bindValueToProperty("nuevaHabitacion")
 
         var tablaHabitaciones = new Table<Habitacion>(panelPadre, typeof(Habitacion)) => [
 
@@ -159,13 +162,15 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     def agregarHabitacion(){
+        this.modelObject.crearHabitacion()
     }
 
     def quitarHabitacion(){
-
+        this.modelObject.quitarHabitacion()
     }
 
     def agregarLaberinto(){
+        new LaberintoNuevoDIalog(this, this.modelObject).open
     }
 
     def quitarLaberinto(){
