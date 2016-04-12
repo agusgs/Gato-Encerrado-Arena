@@ -1,3 +1,5 @@
+package ar.edu.unq.ciu.GatoEncerradoArena.Ordenar
+
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
@@ -6,6 +8,7 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import ar.edu.unq.ciu.GatoEncerradoAppModel.MoverAppModel
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
+import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.AccionMoverDialog
 
 class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
 
@@ -50,7 +53,7 @@ class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
         moverAppModel.habitaciones = modelObject.laberinto.habitaciones
         moverAppModel.habitacionActual = modelObject.habitacion
         moverAppModel.habitacionSeleccionada = moverAppModel.habitaciones.get(0)  
-        new AccionMoverWindow(this, moverAppModel).open
+        new AccionMoverDialog(this, moverAppModel).open
     }
 
     def crearAccionDeAgarrarUnItem(){

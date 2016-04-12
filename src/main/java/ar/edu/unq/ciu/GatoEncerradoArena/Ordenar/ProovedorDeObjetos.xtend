@@ -1,3 +1,4 @@
+package ar.edu.unq.ciu.GatoEncerradoArena.Ordenar
 
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
 import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto

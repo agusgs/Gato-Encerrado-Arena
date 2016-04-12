@@ -1,23 +1,26 @@
+package ar.edu.unq.ciu.GatoEncerradoArena.Ordenar
 
-import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto
-import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
-import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
-
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.widgets.tables.Table
-import org.uqbar.arena.widgets.tables.Column
-import org.uqbar.arena.widgets.CheckBox
-import org.uqbar.arena.widgets.TextBox
-
-import org.uqbar.arena.windows.SimpleWindow
-import org.uqbar.arena.windows.WindowOwner
-
-import org.uqbar.arena.layout.HorizontalLayout
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
+import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.HabitacionNuevaDialog
+import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.HabitacionQuitarDialog
+import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.LaberintoNuevoDIalog
+import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.LaberintoQuitarDialog
+import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.QuitarAccionDialog
+import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
+import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
+import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto
 import java.awt.Color
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.CheckBox
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.TextBox
+import org.uqbar.arena.widgets.tables.Column
+import org.uqbar.arena.widgets.tables.Table
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
 
 class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
 
@@ -29,7 +32,6 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     override createFormPanel(Panel mainPanel) {
-
         var panelDelTitulo = new Panel(mainPanel)
 
         var panelDelContenido = new Panel(mainPanel)

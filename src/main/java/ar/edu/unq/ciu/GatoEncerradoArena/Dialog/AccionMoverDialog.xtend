@@ -1,3 +1,5 @@
+package ar.edu.unq.ciu.GatoEncerradoArena.Dialog
+
 import ar.edu.unq.ciu.GatoEncerradoDominio.AccionMover
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
 import org.uqbar.arena.bindings.PropertyAdapter
@@ -12,7 +14,7 @@ import org.uqbar.arena.windows.WindowOwner
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import ar.edu.unq.ciu.GatoEncerradoAppModel.MoverAppModel
 
-class AccionMoverWindow extends Dialog<MoverAppModel>{
+class AccionMoverDialog extends Dialog<MoverAppModel>{
 
     new (WindowOwner owner, MoverAppModel model) {
         super(owner, model)

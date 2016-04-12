@@ -1,3 +1,5 @@
+package ar.edu.unq.ciu.GatoEncerradoArena.Dialog
+
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
@@ -8,7 +10,7 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.layout.VerticalLayout
 
-class AccionAgarrarWindow extends Dialog<AccionAgarrar>{
+class AccionAgarrarDialog extends Dialog<AccionAgarrar>{
 
     new (WindowOwner owner, AccionAgarrar accion) {
         super(owner, accion)
