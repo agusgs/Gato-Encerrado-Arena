@@ -4,7 +4,8 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import ar.edu.unq.ciu.GatoEncerradoDominio.AgregarAccionAppModel
+import ar.edu.unq.ciu.GatoEncerradoAppModel.MoverAppModel
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
 
 class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
 
@@ -45,9 +46,11 @@ class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
     }
 
     def crearAccionDeIrAOtraHabitacion(){
-//        val accionMover = new AccionMover()
-//        this.modelObject.agregarAccion(accionMover)
-//        new AccionMoverWindow(this, accionMover).open
+        val moverAppModel = new MoverAppModel()
+        moverAppModel.habitaciones = modelObject.laberinto.habitaciones
+        moverAppModel.habitacionActual = modelObject.habitacion
+        moverAppModel.habitacionSeleccionada = moverAppModel.habitaciones.get(0)  
+        new AccionMoverWindow(this, moverAppModel).open
     }
 
     def crearAccionDeAgarrarUnItem(){

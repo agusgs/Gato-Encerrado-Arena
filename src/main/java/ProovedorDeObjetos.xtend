@@ -1,7 +1,8 @@
-import ar.edu.unq.ciu.GatoEncerradoDominio.AcaHayGatoEncerradoAppModel
+
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
 import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto
 import java.util.ArrayList
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
 
 class ProovedorDeObjetos {
     def crearAppModel(){

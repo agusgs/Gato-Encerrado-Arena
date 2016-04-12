@@ -1,5 +1,4 @@
 
-import ar.edu.unq.ciu.GatoEncerradoDominio.AcaHayGatoEncerradoAppModel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
@@ -7,6 +6,7 @@ import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
 
 class LaberintoNuevoDIalog extends Dialog<AcaHayGatoEncerradoAppModel>{
 

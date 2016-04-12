@@ -1,6 +1,4 @@
 
-import ar.edu.unq.ciu.GatoEncerradoDominio.AcaHayGatoEncerradoAppModel
-import ar.edu.unq.ciu.GatoEncerradoDominio.AgregarAccionAppModel
 import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto
 import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
@@ -17,6 +15,9 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
 import org.uqbar.arena.layout.HorizontalLayout
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
+import java.awt.Color
 
 class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
 
@@ -45,7 +46,13 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     def armarPanelTitulo(Panel panelPadre){
-        new Label(panelPadre).text = "Aca Hay Gato Encerrado"
+        new Label(panelPadre) => [
+        	text = "Aca Hay Gato Encerrado"
+        	fontSize = 14
+        	foreground = Color.WHITE
+        	background = Color.RED
+        ]
+             
     }
 
     def armarPanelLaberintos(Panel panelPadre){

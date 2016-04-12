@@ -1,4 +1,4 @@
-import ar.edu.unq.ciu.GatoEncerradoDominio.AcaHayGatoEncerradoAppModel
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
 import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.widgets.Panel
 

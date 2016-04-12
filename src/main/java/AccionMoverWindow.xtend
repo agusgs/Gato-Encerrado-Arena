@@ -1,6 +1,5 @@
 import ar.edu.unq.ciu.GatoEncerradoDominio.AccionMover
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
-import ar.edu.unq.ciu.GatoEncerradoDominio.MoverAppModel
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
@@ -11,6 +10,7 @@ import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import ar.edu.unq.ciu.GatoEncerradoAppModel.MoverAppModel
 
 class AccionMoverWindow extends Dialog<MoverAppModel>{
 
@@ -36,11 +36,17 @@ class AccionMoverWindow extends Dialog<MoverAppModel>{
 			caption = "Cancelar"
 			onClick [ | this.close ]
 		]
-		val accionMover = new AccionMover(this.modelObject.habitacionSeleccionada)
+		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-			onClick [ | this.modelObject.agregarAccionMover(accionMover)]
+			onClick [ | this.agregarAccion()]
 		]
  	}
 		    
+	def agregarAccion(){
+		val accionMover = new AccionMover()
+		accionMover.habitacion = this.modelObject.habitacionSeleccionada
+		this.modelObject.agregarAccionMover(accionMover)
+		this.close
+	}
 }
