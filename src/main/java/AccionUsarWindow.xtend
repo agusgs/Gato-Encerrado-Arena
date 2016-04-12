@@ -28,12 +28,12 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
 		new Label(mainPanel).text = "Crear la accion a realizar"
 		new Button(mainPanel) => [
 			caption = "Agregar Acciòn"
-			enabled => false
+			//enabled => false
 			onClick [ | 
 				//new NuevaAccionWindow(this, new Habitacion).open
 			]
 		]
-		new Label(mainPanel).[]
+		//new Label(mainPanel).[]
 		
 		this.crearBotones(mainPanel)
     }

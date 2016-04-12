@@ -1,25 +1,26 @@
-import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
-import ar.edu.unq.ciu.GatoEncerradoDominio.AccionMover
-import ar.edu.unq.ciu.GatoEncerradoDominio.AccionAgarrar
-import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
+import ar.edu.unq.ciu.GatoEncerradoDominio.AgregarAccionAppModel
+import ar.edu.unq.ciu.GatoEncerradoDominio.AccionUsarAppModel
 
-class NuevaAccionWindow extends MainWindow<Habitacion>{
+class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
 
-    new (Habitacion unaHabitacion) {
-        super(unaHabitacion)
+    new (WindowOwner parent, AgregarAccionAppModel model) {
+        super(parent, model)
     }
 
-    override createContents(Panel mainPanel) {
+    override addActions(Panel actionsPanel) {
+        this.crearBotones(actionsPanel)
+    }
 
+    override createFormPanel(Panel mainPanel) {
         this.title = "Agregar accion"
 
         new Label(mainPanel).text = "Seleccione una accion a agregar"
-
-        this.crearBotones(mainPanel)
     }
 
     def void crearBotones(Panel parentPanel){
@@ -45,24 +46,21 @@ class NuevaAccionWindow extends MainWindow<Habitacion>{
     }
 
     def crearAccionDeIrAOtraHabitacion(){
-        val accionMover = new AccionMover()
-        this.modelObject.agregarAccion(accionMover)
-        new AccionMoverWindow(this, accionMover).open
+//        val accionMover = new AccionMover()
+//        this.modelObject.agregarAccion(accionMover)
+//        new AccionMoverWindow(this, accionMover).open
     }
 
     def crearAccionDeAgarrarUnItem(){
-        val accionAgarrar = new AccionAgarrar()
-        this.modelObject.agregarAccion(accionAgarrar)
-        new AccionAgarrarWindow(this, accionAgarrar).open
+//        val accionAgarrar = new AccionAgarrar()
+//        this.modelObject.agregarAccion(accionAgarrar)
+//        new AccionAgarrarWindow(this, accionAgarrar).open
     }
 
     def crearAccionDeUsarUnItem(){
-       // val app = new AppModel()
-      //  new AccionUsarWindow(this, app).open
+        val accionUsarAppModel = new AccionUsarAppModel()
+        accionUsarAppModel.laberinto = this.modelObject.laberinto
+        accionUsarAppModel.habitacionActual = this.modelObject.habitacion
+        new AccionUsarWindow(this, accionUsarAppModel).open
     }
-
-    def static main(String[] args) {
-        new NuevaAccionWindow(new Habitacion()).startApplication
-    }
-
 }
