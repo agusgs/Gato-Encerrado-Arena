@@ -1,3 +1,5 @@
+package ar.edu.unq.ciu.GatoEncerradoArena.Ordenar
+
 import ar.edu.unq.ciu.GatoEncerradoDominio.Test
 import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.widgets.Panel
