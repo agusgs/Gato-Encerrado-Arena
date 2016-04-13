@@ -1,6 +1,5 @@
 
 import ar.edu.unq.ciu.GatoEncerradoDominio.AcaHayGatoEncerradoAppModel
-import ar.edu.unq.ciu.GatoEncerradoDominio.AgregarAccionAppModel
 import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto
 import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
@@ -17,6 +16,7 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
 import org.uqbar.arena.layout.HorizontalLayout
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
 
 class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
 

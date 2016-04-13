@@ -7,8 +7,9 @@ import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
-import ar.edu.unq.ciu.GatoEncerradoDominio.AccionUsarAppModel
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AccionUsarAppModel
 
 class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
 
@@ -30,7 +31,7 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
 			caption = "Agregar Acciòn"
 			//enabled => false
 			onClick [ | 
-				//new NuevaAccionWindow(this, new Habitacion).open
+				//new NuevaAccionWindow(this, crearNuevaApp).open
 			]
 		]
 		//new Label(mainPanel).[]
@@ -49,5 +50,12 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
 			caption = "Aceptar"
 			onClick [ |  ]
 		]
+   	}
+   	
+   	def AgregarAccionAppModel crearNuevaApp(){
+   		val app = new AgregarAccionAppModel()
+   		app.setLaberinto(this.modelObject.laberinto)
+   		app.setHabitacion(this.modelObject.habitacionActual)
+   		app
    	}
 }

@@ -1,16 +1,18 @@
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import ar.edu.unq.ciu.GatoEncerradoDominio.AccionAgarrar
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.VerticalLayout
 import ar.edu.unq.ciu.GatoEncerradoDominio.Item
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AccionAgarrarAppModel
+import ar.edu.unq.ciu.GatoEncerradoDominio.AccionAgarrar
+import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
 
-class AccionAgarrarWindow extends Dialog<AccionAgarrar>{
+class AccionAgarrarWindow extends Dialog<AccionAgarrarAppModel>{
 
-    new (WindowOwner owner, AccionAgarrar accion) {
+    new (WindowOwner owner, AccionAgarrarAppModel accion) {
         super(owner, accion)
     }
 
@@ -32,9 +34,14 @@ class AccionAgarrarWindow extends Dialog<AccionAgarrar>{
 		new Button(mainPanel) => [
 			caption = "Aceptar"
 			onClick [ | 
-				this.modelObject.setItem(item)
+				this.modelObject.habitacion.agregarAccion(nuevaAccion(item))
 				this.close
 			]
 		]
    	}
+	def Accion nuevaAccion(Item item){
+		val accion = new AccionAgarrar()
+		accion.setItem(item)
+		accion
+	}
 }
