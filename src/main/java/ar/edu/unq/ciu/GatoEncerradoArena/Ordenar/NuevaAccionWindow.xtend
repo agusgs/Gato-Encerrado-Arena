@@ -9,6 +9,10 @@ import org.uqbar.arena.windows.WindowOwner
 import ar.edu.unq.ciu.GatoEncerradoAppModel.MoverAppModel
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
 import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.AccionMoverDialog
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AccionUsarAppModel
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AccionAgarrarAppModel
+import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.AccionAgarrarWindow
+import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.AccionUsarWindow
 
 class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
 
@@ -57,14 +61,15 @@ class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
     }
 
     def crearAccionDeAgarrarUnItem(){
-//        val accionAgarrar = new AccionAgarrar()
-//        this.modelObject.agregarAccion(accionAgarrar)
-//        new AccionAgarrarWindow(this, accionAgarrar).open
+        val accionAgarrar = new AccionAgarrarAppModel()
+        accionAgarrar.habitacion = this.modelObject.habitacion
+        new AccionAgarrarWindow(this, accionAgarrar).open
     }
 
     def crearAccionDeUsarUnItem(){
-//        val accionUsar = new AccionUsar()
-//        this.modelObject.agregarAccion(accionUsar)
-//        new AccionUsarWindow(this, accionUsar).open
+        val accionUsarAppModel = new AccionUsarAppModel()
+        accionUsarAppModel.laberinto = this.modelObject.laberinto
+        accionUsarAppModel.habitacionActual = this.modelObject.habitacion
+        new AccionUsarWindow(this, accionUsarAppModel).open
     }
 }

@@ -7,6 +7,7 @@ import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.HabitacionQuitarDialog
 import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.LaberintoNuevoDIalog
 import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.LaberintoQuitarDialog
 import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.QuitarAccionDialog
+import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto
 import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
 import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto
@@ -21,6 +22,8 @@ import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import org.uqbar.arena.layout.HorizontalLayout
+import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
 
 class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
 
