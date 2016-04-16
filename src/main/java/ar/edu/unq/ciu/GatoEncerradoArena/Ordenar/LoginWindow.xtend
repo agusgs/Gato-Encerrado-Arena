@@ -13,6 +13,7 @@ import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
 import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.windows.ErrorsPanel
 
 class LoginWindow extends MainWindow<Login> {
 		
@@ -21,43 +22,29 @@ class LoginWindow extends MainWindow<Login> {
 	}
 	
 	override createContents(Panel mainPanel) {
-		this.title = "Ingreso a Gato Encerrado"
-		
+		this.title = "Login Gato Encerrado"
+
+        new ErrorsPanel(mainPanel, "Ingrese usuario y contrasenia")
+
 		val panelArriba = new Panel(mainPanel)
 		panelArriba.layout = new ColumnLayout(2)
+
 		new Label(panelArriba).text = "Usuario"
-		new TextBox(panelArriba).value <=> "usuario"
+		new TextBox(panelArriba).value <=> "nombreUsuario"
 		
 		new Label(panelArriba).text = "Contraseña"
-		new PasswordField(panelArriba).value <=> "password"
-		
-		val panelProvisorio = new Panel(mainPanel)
-		panelProvisorio.layout = new HorizontalLayout
-		new Label(panelProvisorio) => [
-			text = "Por ahora, password = interfaces"
-			background = Color.GRAY
-			foreground = Color.BLACK
-		]	
+		new PasswordField(panelArriba).value <=> "passwordUsuario"
 
 		new Button(mainPanel) => [
-            caption = "Ingresar" //quitar el if de alguna forma
-            onClick [ | this.ingresar ]
+            caption = "Ingresar"
+            onClick [ | ingresar ]
         ]
-		
-		new Label(mainPanel) => [
-			background = Color.BLUE
-			foreground = Color.YELLOW
-			value <=> "passwordOk"	
-		]
-		
-	}
-	
+    }
+
 	def ingresar() {
-		if (modelObject.passwordOk) {
+            modelObject.validarIngreso
 			var appModel = new AcaHayGatoEncerradoAppModel
-			new PantallaPrincipalWindow(this, appModel ).open	
-		}
-			
+			new PantallaPrincipalWindow(this, appModel ).open
 	}
 
 }
