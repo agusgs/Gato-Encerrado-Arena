@@ -24,7 +24,7 @@ class AccionAgarrarWindow extends Dialog<AccionAgarrarAppModel>{
 		var panelDeLabel = new Panel(mainPanel)
        	panelDeLabel.setLayout(new VerticalLayout)
        	
-		new Label(mainPanel).text = "Escriba una habitaciòn a la cual ir"
+		new Label(mainPanel).text = "Escriba el elemento que aparecerà en la habitaciòn"
 		val item = new Item
 		item.setNombre = new TextBox(mainPanel).value.toString
 

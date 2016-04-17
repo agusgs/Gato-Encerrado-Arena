@@ -12,6 +12,9 @@ import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AccionUsarAppModel
+import ar.edu.unq.ciu.GatoEncerradoArena.Ordenar.NuevaAccionWindow
+import org.uqbar.arena.bindings.PropertyAdapter
+import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
 
 class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
 
@@ -22,18 +25,23 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
     override createFormPanel(Panel mainPanel) {
         this.title = "Agregar accion de Usar un elemento"
         mainPanel.setLayout(new VerticalLayout)
-        new Label(mainPanel).text = "Selecciones el elemento que puede ser usado"
+        
+        new Label(mainPanel).text = "Seleccione el elemento que puede ser usado"
+        
         new Selector<Accion>(mainPanel) => [
         	allowNull(false)
-        	items <=> "this.modelObject.listadoCompletoDeAcciones"
+        	value <=> "accionSeleccionada"
+        	(items <=> "this.modelObject.listadoCompletoDeAcciones").adapter = new PropertyAdapter(Habitacion, "nombre")
         	//onSelection(Action):
 		]
+		
 		new Label(mainPanel).text = "Crear la accion a realizar"
+		
 		new Button(mainPanel) => [
 			caption = "Agregar Acciòn"
 			//enabled => false
 			onClick [ | 
-				//new NuevaAccionWindow(this, crearNuevaApp).open
+				new NuevaAccionWindow(this, crearNuevaApp).open
 			]
 		]
 		//new Label(mainPanel).[]
