@@ -1,7 +1,7 @@
 package ar.edu.unq.ciu.GatoEncerradoArena.Runnable
 
 import ar.edu.unq.ciu.GatoEncerradoArena.Ordenar.LoginWindow
-import ar.edu.unq.ciu.GatoEncerradoArena.Ordenar.ProovedorDeObjetos
+import ar.edu.unq.ciu.GatoEncerradoArena.Ordenar.ProveedorDeObjetos
 
 class App {
     
@@ -13,7 +13,7 @@ class App {
     }
 
     def static nuevoLogin(){
-        var po = new ProovedorDeObjetos
+        var po = new ProveedorDeObjetos
         return po.nuevoLogin
     }
 }
