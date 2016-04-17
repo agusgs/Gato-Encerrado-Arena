@@ -66,7 +66,7 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
 
         var tablaLaberintos = new Table<Laberinto>(panelPadre, typeof(Laberinto)) => [
 
-            bindItemsToProperty("laberintos")
+            bindItemsToProperty("usuario.laberintos")
             bindValueToProperty("laberintoSeleccionado")
         ]
 

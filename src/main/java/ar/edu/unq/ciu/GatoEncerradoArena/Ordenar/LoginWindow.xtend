@@ -44,8 +44,9 @@ class LoginWindow extends MainWindow<Login> {
 
 	def ingresar(ArrayList<Label> errorLabel) {
         try{
-            modelObject.validarIngreso
             var appModel = new AcaHayGatoEncerradoAppModel
+            appModel.usuario = modelObject.usuarioQueMachea()
+
             new PantallaPrincipalWindow(this, appModel ).open
         }catch(UserException exception){
             new ErrorUsuarioDialog(this, exception).open

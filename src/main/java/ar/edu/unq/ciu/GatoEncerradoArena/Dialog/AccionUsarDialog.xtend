@@ -57,7 +57,7 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
    	def AgregarAccionAppModel crearNuevaApp(){
    		val app = new AgregarAccionAppModel()
    		app.setLaberinto(this.modelObject.laberinto)
-   		app.setHabitacion(this.modelObject.habitacionActual)
+   		app.setHabitacion(this.modelObject.habitacion)
    		app
    	}
 }
