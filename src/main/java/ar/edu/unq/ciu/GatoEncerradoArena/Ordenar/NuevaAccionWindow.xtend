@@ -6,6 +6,7 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+
 import ar.edu.unq.ciu.GatoEncerradoAppModel.MoverAppModel
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
 import ar.edu.unq.ciu.GatoEncerradoArena.Dialog.AccionMoverDialog
@@ -68,8 +69,8 @@ class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
 
     def crearAccionDeUsarUnItem(){
         val accionUsarAppModel = new AccionUsarAppModel()
-        accionUsarAppModel.laberinto = this.modelObject.laberinto
-        accionUsarAppModel.habitacion = this.modelObject.habitacion
+        accionUsarAppModel.laberinto = modelObject.laberinto
+        accionUsarAppModel.habitacion = modelObject.habitacion
         new AccionUsarWindow(this, accionUsarAppModel).open
     }
 }
