@@ -41,7 +41,9 @@ class AccionMoverDialog extends Dialog<MoverAppModel>{
 		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-			onClick [ | this.agregarAccion()]
+			onClick [ | this.agregarAccion()
+				this.close
+			]
 		]
  	}
 		    
