@@ -41,7 +41,9 @@ class AccionMoverDialog extends Dialog<MoverAppModel>{
 		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-			onClick [ | this.agregarAccion()]
+			onClick [ | this.agregarAccion()
+				this.close
+			]
 		]
  	}
 		    
@@ -49,6 +51,5 @@ class AccionMoverDialog extends Dialog<MoverAppModel>{
 		val accionMover = new AccionMover()
 		accionMover.habitacion = this.modelObject.habitacionSeleccionada
 		this.modelObject.agregarAccionMover(accionMover)
-		this.close
 	}
 }
