@@ -20,6 +20,9 @@ import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AccionUsarAppModel
 import ar.edu.unq.ciu.GatoEncerradoArena.Ordenar.NuevaAccionWindow
 
+import org.uqbar.arena.bindings.PropertyAdapter
+import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
+
 class AccionUsarWindow extends TransactionalWindow<AccionUsarAppModel>{
 
     new (WindowOwner owner, AccionUsarAppModel model) {
@@ -31,6 +34,7 @@ class AccionUsarWindow extends TransactionalWindow<AccionUsarAppModel>{
         this.title = "Agregar accion de Usar un elemento"
 
         mainPanel.setLayout(new VerticalLayout)
+
         new Label(mainPanel).text = "Selecciones el elemento que puede ser usado"
 
         new Selector<Item>(mainPanel) => [
@@ -39,7 +43,7 @@ class AccionUsarWindow extends TransactionalWindow<AccionUsarAppModel>{
             value.bindToProperty("itemSeleccionado")
 		]
 
-        new Label(mainPanel).text = "Agregar acción"
+        new Label(mainPanel).text = "Crear la accion a realizar"
 
         new Button(mainPanel) => [
             caption = "Agregar acción"
@@ -69,7 +73,7 @@ class AccionUsarWindow extends TransactionalWindow<AccionUsarAppModel>{
    		agregarAccionAppModel.setLaberinto(this.modelObject.laberinto)
    		agregarAccionAppModel.setHabitacion(this.modelObject.habitacion)
    		agregarAccionAppModel
-   	}
+    }
 
     override addActions(Panel actionsPanel) {
     }
