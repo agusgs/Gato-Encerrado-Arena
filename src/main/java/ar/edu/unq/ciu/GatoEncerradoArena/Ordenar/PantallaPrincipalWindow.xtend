@@ -174,6 +174,7 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         new Button(panelPadre) => [
             caption = "Quitar Laberinto"
             onClick [ | this.quitarLaberinto()]
+            bindEnabledToProperty("isLaberintoSeleccionadoNoNulo")
         ]
     }
 
@@ -181,11 +182,13 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         new Button(panelPadre) => [
             caption = "Agregar Habitacion"
             onClick [ | this.agregarHabitacion() ]
+            bindEnabledToProperty("isLaberintoSeleccionadoNoNulo")
         ]
 
         new Button(panelPadre) => [
             caption = "Quitar Habitacion"
             onClick [ | this.quitarHabitacion()]
+            bindEnabledToProperty("isHabitacionSeleccionadaNoNula")
         ]
     }
 
@@ -194,11 +197,13 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         new Button(panelPadre) => [
             caption = "Agregar Accion"
             onClick [ | this.agregarAccion() ]
+            bindEnabledToProperty("isHabitacionSeleccionadaNoNula")
         ]
 
         new Button(panelPadre) => [
             caption = "Quitar Accion"
             onClick [ | this.quitarAccion()]
+            bindEnabledToProperty("isAccionSeleccionadaNoNula")
         ]
     }
 
@@ -219,11 +224,7 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     def agregarAccion(){
-        var agregarAccionAppModel = new AgregarAccionAppModel()
-        agregarAccionAppModel.laberinto = modelObject.laberintoSeleccionado
-        agregarAccionAppModel.habitacion = modelObject.habitacionSeleccionada
-
-        new NuevaAccionWindow(this, agregarAccionAppModel).open
+        new NuevaAccionWindow(this, modelObject.agregarAccionAppModel).open
     }
 
     def quitarAccion(){
