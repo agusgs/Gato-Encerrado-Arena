@@ -7,10 +7,7 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.VerticalLayout
-import ar.edu.unq.ciu.GatoEncerradoDominio.Item
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AccionAgarrarAppModel
-import ar.edu.unq.ciu.GatoEncerradoDominio.AccionAgarrar
-import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
 
 class AccionAgarrarWindow extends Dialog<AccionAgarrarAppModel>{
 
@@ -23,27 +20,21 @@ class AccionAgarrarWindow extends Dialog<AccionAgarrarAppModel>{
 
 		var panelDeLabel = new Panel(mainPanel)
        	panelDeLabel.setLayout(new VerticalLayout)
-       	
-		new Label(mainPanel).text = "Escriba una habitaciòn a la cual ir"
-		val item = new Item
-		item.setNombre = new TextBox(mainPanel).value.toString
 
-			new Button(mainPanel) => [
+		new Label(mainPanel).text = "Escriba el elemento que aparecerá en la habitación"
+		new TextBox(mainPanel).bindValueToProperty("nombreNuevoItem")
+
+		new Button(mainPanel) => [
 			caption = "Cancelar"
-			onClick [ | this.close ]
+			onClick [ | close ]
 		]
 		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
 			onClick [ | 
-				this.modelObject.habitacion.agregarAccion(nuevaAccion(item))
-				this.close
+				modelObject.agregarAccion()
+				close
 			]
 		]
    	}
-	def Accion nuevaAccion(Item item){
-		val accion = new AccionAgarrar()
-		accion.setItem(item)
-		accion
-	}
 }
