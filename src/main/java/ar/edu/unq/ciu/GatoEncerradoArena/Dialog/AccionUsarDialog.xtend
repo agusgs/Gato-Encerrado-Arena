@@ -2,6 +2,8 @@ package ar.edu.unq.ciu.GatoEncerradoArena.Dialog
 
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.aop.windows.TransactionalWindow
+
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Selector
@@ -13,11 +15,12 @@ import org.uqbar.arena.bindings.PropertyAdapter
 //import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 
 import ar.edu.unq.ciu.GatoEncerradoDominio.Accion
+import ar.edu.unq.ciu.GatoEncerradoDominio.Item
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AgregarAccionAppModel
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AccionUsarAppModel
 import ar.edu.unq.ciu.GatoEncerradoArena.Ordenar.NuevaAccionWindow
 
-class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
+class AccionUsarWindow extends TransactionalWindow<AccionUsarAppModel>{
 
     new (WindowOwner owner, AccionUsarAppModel model) {
         super(owner, model)
@@ -30,23 +33,18 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
         mainPanel.setLayout(new VerticalLayout)
         new Label(mainPanel).text = "Selecciones el elemento que puede ser usado"
 
-        new Selector<Accion>(mainPanel) => [
+        new Selector<Item>(mainPanel) => [
         	allowNull(false)
-        	items.bindToProperty("habitacion.acciones").adapter = new PropertyAdapter(Accion, "nombre")
-            value.bindToProperty("accionSeleccionada")
-        	//onSelection(Action):
+        	items.bindToProperty("habitacion.items").adapter = new PropertyAdapter(Accion, "nombre")
+            value.bindToProperty("itemSeleccionado")
 		]
 
-		new Label(mainPanel).text = "Crear la accion a realizar"
+        new Label(mainPanel).text = "Agregar acción"
 
-		new Button(mainPanel) => [
-			caption = "Agregar Acciòn"
-			//enabled => false
-			onClick [ |
-				new NuevaAccionWindow(this, crearNuevaApp).open
-			]
-		]
-		//new Label(mainPanel).[]
+        new Button(mainPanel) => [
+            caption = "Agregar acción"
+            onClick [ | new NuevaAccionWindow(this, crearAccion).open ]
+        ]
 
 		this.crearBotones(mainPanel)
     }
@@ -54,21 +52,26 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
     def void crearBotones(Panel mainPanel){
 		var panelDeLosBotones = new Panel(mainPanel)
        	panelDeLosBotones.setLayout(new HorizontalLayout)
-			new Button(mainPanel) => [
+
+        new Button(mainPanel) => [
+            caption = "Aceptar"
+            onClick [ | close]
+        ]
+
+        new Button(mainPanel) => [
 			caption = "Cancelar"
-			onClick [ | this.close ]
+			onClick [ | close ]
 		]
+    }
 
-		new Button(mainPanel) => [
-			caption = "Aceptar"
-			onClick [ |  ]
-		]
+   	def crearAccion(){
+   		val agregarAccionAppModel = new AgregarAccionAppModel()
+   		agregarAccionAppModel.setLaberinto(this.modelObject.laberinto)
+   		agregarAccionAppModel.setHabitacion(this.modelObject.habitacion)
+   		agregarAccionAppModel
    	}
 
-   	def crearNuevaApp(){
-   		val app = new AgregarAccionAppModel()
-   		app.setLaberinto(this.modelObject.laberinto)
-   		app.setHabitacion(this.modelObject.habitacion)
-   		app
-   	}
+    override addActions(Panel actionsPanel) {
+    }
+
 }
