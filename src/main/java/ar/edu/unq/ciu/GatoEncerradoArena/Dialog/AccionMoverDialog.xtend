@@ -51,6 +51,5 @@ class AccionMoverDialog extends Dialog<MoverAppModel>{
 		val accionMover = new AccionMover()
 		accionMover.habitacion = this.modelObject.habitacionSeleccionada
 		this.modelObject.agregarAccionMover(accionMover)
-		this.close
 	}
 }

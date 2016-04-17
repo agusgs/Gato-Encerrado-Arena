@@ -50,6 +50,11 @@ class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
             caption = "Agregar accion de usar un elemento"
             onClick [ | this.crearAccionDeUsarUnItem() ]
         ]
+        
+        new Button(panelDeLosBotones) => [
+            caption = "Salir"
+            onClick [ | this.close ]
+        ]
 
     }
 

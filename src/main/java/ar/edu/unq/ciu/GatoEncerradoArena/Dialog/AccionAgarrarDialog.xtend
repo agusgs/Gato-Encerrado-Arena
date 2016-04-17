@@ -32,9 +32,10 @@ class AccionAgarrarWindow extends Dialog<AccionAgarrarAppModel>{
 		new Button(mainPanel) => [
 			caption = "Aceptar"
 			onClick [ | 
-				modelObject.agregarAccion()
+				this.modelObject.agregarAccion()
 				close
 			]
 		]
    	}
+
 }
