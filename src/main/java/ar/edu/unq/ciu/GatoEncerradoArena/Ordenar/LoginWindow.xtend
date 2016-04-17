@@ -1,19 +1,18 @@
 package ar.edu.unq.ciu.GatoEncerradoArena.Ordenar
 
 import ar.edu.unq.ciu.GatoEncerradoDominio.Login
-import java.awt.Color
-import org.uqbar.arena.layout.HorizontalLayout
+import java.util.ArrayList
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.PasswordField
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.MainWindow
+import org.uqbar.commons.model.UserException
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Button
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
 import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.windows.ErrorsPanel
 
 class LoginWindow extends MainWindow<Login> {
 		
@@ -24,7 +23,8 @@ class LoginWindow extends MainWindow<Login> {
 	override createContents(Panel mainPanel) {
 		this.title = "Login Gato Encerrado"
 
-        new ErrorsPanel(mainPanel, "Ingrese usuario y contrasenia")
+        val errorPanel = new Panel(mainPanel)
+        val errorLabel = newArrayList(new Label(errorPanel).text = "Ingrese usuario y contrasenia")
 
 		val panelArriba = new Panel(mainPanel)
 		panelArriba.layout = new ColumnLayout(2)
@@ -37,14 +37,17 @@ class LoginWindow extends MainWindow<Login> {
 
 		new Button(mainPanel) => [
             caption = "Ingresar"
-            onClick [ | ingresar ]
+            onClick [ | ingresar(errorLabel) ]
         ]
     }
 
-	def ingresar() {
+	def ingresar(ArrayList<Label> errorLabel) {
+        try{
             modelObject.validarIngreso
-			var appModel = new AcaHayGatoEncerradoAppModel
-			new PantallaPrincipalWindow(this, appModel ).open
+            var appModel = new AcaHayGatoEncerradoAppModel
+            new PantallaPrincipalWindow(this, appModel ).open
+        }catch(UserException exception){
+            errorLabel.get(0).setText(exception.message)
+        }
 	}
-
 }

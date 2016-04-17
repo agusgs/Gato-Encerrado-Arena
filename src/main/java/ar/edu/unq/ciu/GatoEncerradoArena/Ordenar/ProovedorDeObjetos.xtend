@@ -2,6 +2,8 @@ package ar.edu.unq.ciu.GatoEncerradoArena.Ordenar
 
 import ar.edu.unq.ciu.GatoEncerradoDominio.Habitacion
 import ar.edu.unq.ciu.GatoEncerradoDominio.Laberinto
+import ar.edu.unq.ciu.GatoEncerradoDominio.Login
+import ar.edu.unq.ciu.GatoEncerradoDominio.Usuario
 import java.util.ArrayList
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
 
@@ -102,5 +104,27 @@ class ProovedorDeObjetos {
         habitaciones.add(hab3)
 
         return habitaciones
+    }
+
+    def nuevoLogin(){
+        var login = new Login
+        login.usuarios = tresUsuarios
+        return login
+    }
+
+    def tresUsuarios(){
+        var usuario1 = new Usuario
+        var usuario2 = new Usuario
+        var usuario3 = new Usuario
+
+        usuario1.nombre = "usuario1"
+        usuario2.nombre = "usuario2"
+        usuario3.nombre = "usuario3"
+
+        usuario1.password = "usuario1"
+        usuario2.password = "usuario2"
+        usuario3.password = "usuario3"
+
+        return newArrayList(usuario1, usuario2, usuario3)
     }
 }
