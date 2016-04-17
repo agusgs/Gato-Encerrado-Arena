@@ -69,7 +69,7 @@ class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
     def crearAccionDeUsarUnItem(){
         val accionUsarAppModel = new AccionUsarAppModel()
         accionUsarAppModel.laberinto = this.modelObject.laberinto
-        accionUsarAppModel.habitacionActual = this.modelObject.habitacion
+        accionUsarAppModel.habitacion = this.modelObject.habitacion
         new AccionUsarWindow(this, accionUsarAppModel).open
     }
 }

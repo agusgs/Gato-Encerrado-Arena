@@ -7,10 +7,10 @@ import ar.edu.unq.ciu.GatoEncerradoDominio.Usuario
 import java.util.ArrayList
 import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
 
-class ProovedorDeObjetos {
+class ProveedorDeObjetos {
     def crearAppModel(){
         var appModel = new AcaHayGatoEncerradoAppModel
-        appModel.laberintos = crearlaberintos()
+        //appModel.laberintos = crearlaberintos()
 
         return appModel
     }
