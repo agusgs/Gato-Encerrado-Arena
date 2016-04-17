@@ -24,9 +24,6 @@ class LoginWindow extends MainWindow<Login> {
 	override createContents(Panel mainPanel) {
 		this.title = "Login Gato Encerrado"
 
-        val errorPanel = new Panel(mainPanel)
-        val errorLabel = newArrayList(new Label(errorPanel).text = "Ingrese usuario y contrasenia")
-
 		val panelArriba = new Panel(mainPanel)
 		panelArriba.layout = new ColumnLayout(2)
 
@@ -38,14 +35,14 @@ class LoginWindow extends MainWindow<Login> {
 
 		new Button(mainPanel) => [
             caption = "Ingresar"
-            onClick [ | ingresar(errorLabel) ]
+            onClick [ | ingresar() ]
         ]
     }
 
-	def ingresar(ArrayList<Label> errorLabel) {
+	def ingresar() {
         try{
-            modelObject.validarIngreso
             var appModel = new AcaHayGatoEncerradoAppModel
+            appModel.usuario = modelObject.usuarioQueMachea()
             new PantallaPrincipalWindow(this, appModel ).open
         }catch(UserException exception){
             new ErrorUsuarioDialog(this, exception).open

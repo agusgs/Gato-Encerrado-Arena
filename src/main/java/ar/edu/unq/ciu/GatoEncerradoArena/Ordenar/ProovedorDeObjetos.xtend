@@ -10,7 +10,7 @@ import ar.edu.unq.ciu.GatoEncerradoAppModel.AcaHayGatoEncerradoAppModel
 class ProovedorDeObjetos {
     def crearAppModel(){
         var appModel = new AcaHayGatoEncerradoAppModel
-        appModel.laberintos = crearlaberintos()
+        appModel.usuario.laberintos = crearlaberintos()
 
         return appModel
     }

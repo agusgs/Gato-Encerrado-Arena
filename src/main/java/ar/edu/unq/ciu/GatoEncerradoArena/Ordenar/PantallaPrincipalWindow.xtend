@@ -35,6 +35,10 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     override createFormPanel(Panel mainPanel) {
+
+        this.title = "Pantalla Principal"
+
+        var panelDelUsuario = new Panel(mainPanel)
         var panelDelTitulo = new Panel(mainPanel)
 
         var panelDelContenido = new Panel(mainPanel)
@@ -44,10 +48,22 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         var panelHabitaciones = new Panel(panelDelContenido)
         var panelHabitacionSeleccionada = new Panel(panelDelContenido)
 
+        armarPanelUsuario(panelDelUsuario)
         armarPanelTitulo(panelDelTitulo)
         armarPanelLaberintos(panelLaberintos)
         armarPanelHabitaciones(panelHabitaciones)
         armarPanelHabitacionSeleccionada(panelHabitacionSeleccionada)
+    }
+
+    def armarPanelUsuario(Panel panelPadre){
+        panelPadre.setLayout(new HorizontalLayout)
+
+        new Label(panelPadre).text = "Hola"
+        new Label(panelPadre) => [
+            bindValueToProperty = "usuario.nombre"
+        ]
+        new Label(panelPadre).text = "! Administrá todos tus laberintos"
+
     }
 
     def armarPanelTitulo(Panel panelPadre){
@@ -66,7 +82,7 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
 
         var tablaLaberintos = new Table<Laberinto>(panelPadre, typeof(Laberinto)) => [
 
-            bindItemsToProperty("laberintos")
+            bindItemsToProperty("usuario.laberintos")
             bindValueToProperty("laberintoSeleccionado")
         ]
 
@@ -211,6 +227,6 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     def quitarAccion(){
-        new QuitarAccionDialog(this, modelObject)
+        new QuitarAccionDialog(this, modelObject).open
     }
 }
