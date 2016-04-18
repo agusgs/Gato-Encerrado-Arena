@@ -176,7 +176,6 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         new Button(panelPadre) => [
             caption = "Quitar Laberinto"
             onClick [ | this.quitarLaberinto()]
-//            bindEnabledToProperty("isLaberintoSeleccionadoNoNulo")
         ]
     }
 
@@ -184,13 +183,11 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         new Button(panelPadre) => [
             caption = "Agregar Habitacion"
             onClick [ | this.agregarHabitacion() ]
-//            bindEnabledToProperty("isLaberintoSeleccionadoNoNulo")
         ]
 
         new Button(panelPadre) => [
             caption = "Quitar Habitacion"
             onClick [ | this.quitarHabitacion()]
-//            bindEnabledToProperty("isHabitacionSeleccionadaNoNula")
         ]
     }
 
@@ -199,23 +196,19 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         new Button(panelPadre) => [
             caption = "Agregar Accion"
             onClick [ | this.agregarAccion() ]
-//            bindEnabledToProperty("isHabitacionSeleccionadaNoNula")
         ]
 
         new Button(panelPadre) => [
             caption = "Quitar Accion"
             onClick [ | this.quitarAccion()]
-//            bindEnabledToProperty("isAccionSeleccionadaNoNula")
         ]
     }
 
     def agregarHabitacion(){
-        modelObject.validarLaberintoSeleccionadoNoNulo
         new HabitacionNuevaDialog(this, this.modelObject).open
     }
 
     def quitarHabitacion(){
-        modelObject.validarHabitacionSeleccionadaNoNula
         new HabitacionQuitarDialog(this, this.modelObject).open
     }
 
@@ -224,17 +217,18 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     def quitarLaberinto(){
-        modelObject.validarLaberintoSeleccionadoNoNulo
         new LaberintoQuitarDialog(this, this.modelObject).open
     }
 
     def agregarAccion(){
-        modelObject.validarHabitacionSeleccionadaNoNula
-        new NuevaAccionWindow(this, modelObject.agregarAccionAppModel).open
+        var agregarAccionAppModel = new AgregarAccionAppModel()
+        agregarAccionAppModel.laberinto = modelObject.laberintoSeleccionado
+        agregarAccionAppModel.habitacion = modelObject.habitacionSeleccionada
+
+        new NuevaAccionWindow(this, agregarAccionAppModel).open
     }
 
     def quitarAccion(){
-        modelObject.validarAccionSeleccionadoNoNula
         new QuitarAccionDialog(this, modelObject).open
     }
 }

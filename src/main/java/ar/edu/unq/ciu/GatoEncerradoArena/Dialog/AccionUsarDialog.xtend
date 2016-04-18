@@ -38,7 +38,7 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
 
         new Selector<Item>(mainPanel) => [
         	allowNull(false)
-        	items.bindToProperty("habitacion.items").adapter = new PropertyAdapter(Accion, "nombre")
+        	items.bindToProperty("items").adapter = new PropertyAdapter(Accion, "nombre")
             value.bindToProperty("itemSeleccionado")
 		]
 
@@ -46,7 +46,13 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
 
         new Button(mainPanel) => [
             caption = "Agregar acción"
+//            enabled.bindToProperty("tieneAccion")
             onClick [ | new NuevaAccionWindow(this, crearAccion).open ]
+        ]
+        
+        new Label(mainPanel)=> [
+       		bindValueToProperty = "accionUsar.nombre"
+       		visible.bindToProperty("tieneAccion")
         ]
 
 		this.crearBotones(mainPanel)

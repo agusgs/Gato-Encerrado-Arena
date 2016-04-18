@@ -117,13 +117,15 @@ class ProveedorDeObjetos {
         var usuario2 = new Usuario
         var usuario3 = new Usuario
 
-        usuario1.nombre = "usuario1"
-        usuario2.nombre = "usuario2"
-        usuario3.nombre = "usuario3"
+        usuario1.nombre = "gise"
+        usuario2.nombre = "tefi"
+        usuario3.nombre = "pablo"
+        usuario3.nombre = "nacho"
 
-        usuario1.password = "usuario1"
-        usuario2.password = "usuario2"
-        usuario3.password = "usuario3"
+        usuario1.password = "gise"
+        usuario2.password = "tefi"
+        usuario3.password = "pablo"
+        usuario3.password = "nacho"
 
         return newArrayList(usuario1, usuario2, usuario3)
     }
