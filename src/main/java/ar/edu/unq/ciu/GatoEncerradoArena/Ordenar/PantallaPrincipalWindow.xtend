@@ -36,6 +36,8 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
 
     override createFormPanel(Panel mainPanel) {
 
+        mainPanel.width = 1000
+
         this.title = "Pantalla Principal"
 
         var panelDelUsuario = new Panel(mainPanel)
