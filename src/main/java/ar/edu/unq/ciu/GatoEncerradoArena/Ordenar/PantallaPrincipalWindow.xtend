@@ -174,7 +174,7 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         new Button(panelPadre) => [
             caption = "Quitar Laberinto"
             onClick [ | this.quitarLaberinto()]
-            bindEnabledToProperty("isLaberintoSeleccionadoNoNulo")
+//            bindEnabledToProperty("isLaberintoSeleccionadoNoNulo")
         ]
     }
 
@@ -182,13 +182,13 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         new Button(panelPadre) => [
             caption = "Agregar Habitacion"
             onClick [ | this.agregarHabitacion() ]
-            bindEnabledToProperty("isLaberintoSeleccionadoNoNulo")
+//            bindEnabledToProperty("isLaberintoSeleccionadoNoNulo")
         ]
 
         new Button(panelPadre) => [
             caption = "Quitar Habitacion"
             onClick [ | this.quitarHabitacion()]
-            bindEnabledToProperty("isHabitacionSeleccionadaNoNula")
+//            bindEnabledToProperty("isHabitacionSeleccionadaNoNula")
         ]
     }
 
@@ -197,21 +197,23 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         new Button(panelPadre) => [
             caption = "Agregar Accion"
             onClick [ | this.agregarAccion() ]
-            bindEnabledToProperty("isHabitacionSeleccionadaNoNula")
+//            bindEnabledToProperty("isHabitacionSeleccionadaNoNula")
         ]
 
         new Button(panelPadre) => [
             caption = "Quitar Accion"
             onClick [ | this.quitarAccion()]
-            bindEnabledToProperty("isAccionSeleccionadaNoNula")
+//            bindEnabledToProperty("isAccionSeleccionadaNoNula")
         ]
     }
 
     def agregarHabitacion(){
+        modelObject.validarLaberintoSeleccionadoNoNulo
         new HabitacionNuevaDialog(this, this.modelObject).open
     }
 
     def quitarHabitacion(){
+        modelObject.validarHabitacionSeleccionadaNoNula
         new HabitacionQuitarDialog(this, this.modelObject).open
     }
 
@@ -220,14 +222,17 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
     }
 
     def quitarLaberinto(){
+        modelObject.validarLaberintoSeleccionadoNoNulo
         new LaberintoQuitarDialog(this, this.modelObject).open
     }
 
     def agregarAccion(){
+        modelObject.validarHabitacionSeleccionadaNoNula
         new NuevaAccionWindow(this, modelObject.agregarAccionAppModel).open
     }
 
     def quitarAccion(){
+        modelObject.validarAccionSeleccionadoNoNula
         new QuitarAccionDialog(this, modelObject).open
     }
 }
