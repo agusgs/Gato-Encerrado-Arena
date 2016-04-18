@@ -73,12 +73,10 @@ class NuevaAccionWindow extends SimpleWindow<AgregarAccionAppModel>{
     }
 
     def crearAccionDeUsarUnItem(){
-    	//aca ver si no estaria bueno disernir de si no hay items, 
-    	//que te abra la pantalla de agarrar elemento
         val accionUsarAppModel = new AccionUsarAppModel()
         accionUsarAppModel.laberinto = modelObject.laberinto
         accionUsarAppModel.habitacion = modelObject.habitacion
-        accionUsarAppModel.accionUsar = modelObject.accionUsar
+        accionUsarAppModel.itemUsar = modelObject.itemUsar
         new AccionUsarWindow(this, accionUsarAppModel).open
     }
 }

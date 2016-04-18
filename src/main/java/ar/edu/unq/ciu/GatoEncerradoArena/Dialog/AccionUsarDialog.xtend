@@ -51,7 +51,7 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
         ]
         
         new Label(mainPanel)=> [
-       		bindValueToProperty = "accionUsar.nombre"
+       		bindValueToProperty = "itemUsar.nombre"
        		visible.bindToProperty("tieneAccion")
         ]
 
@@ -77,6 +77,7 @@ class AccionUsarWindow extends Dialog<AccionUsarAppModel>{
    		val agregarAccionAppModel = new AgregarAccionAppModel()
    		agregarAccionAppModel.setLaberinto(this.modelObject.laberinto)
    		agregarAccionAppModel.setHabitacion(this.modelObject.habitacion)
+   		agregarAccionAppModel.itemUsar = this.modelObject.itemSeleccionado
    		agregarAccionAppModel
     }
 

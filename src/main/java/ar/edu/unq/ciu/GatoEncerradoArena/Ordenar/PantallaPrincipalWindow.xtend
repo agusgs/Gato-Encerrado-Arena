@@ -222,7 +222,6 @@ class PantallaPrincipalWindow extends SimpleWindow<AcaHayGatoEncerradoAppModel>{
         var agregarAccionAppModel = new AgregarAccionAppModel()
         agregarAccionAppModel.laberinto = modelObject.laberintoSeleccionado
         agregarAccionAppModel.habitacion = modelObject.habitacionSeleccionada
-        agregarAccionAppModel.accionUsar = null
         //agregarAccionAppModel.hayAccion = false
 
         new NuevaAccionWindow(this, agregarAccionAppModel).open
